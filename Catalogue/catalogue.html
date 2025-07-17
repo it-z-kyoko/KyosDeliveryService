@@ -69,6 +69,14 @@
       background-color: var(--color-bg);
       color: var(--color-soft-pink);
     }
+
+    .btn-filter {
+      margin: 0.25rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+    }
   </style>
 </head>
 
@@ -95,6 +103,11 @@
   <!-- Catalogue Section -->
   <div class="container py-5">
     <h2 class="text-center mb-4" style="color: var(--color-title);">Catalogue</h2>
+
+    <!-- Filter Buttons -->
+    <div class="text-center mb-4" id="tag-filters"></div>
+
+    <!-- Product Cards -->
     <div class="row g-4" id="catalogue-container"></div>
   </div>
 
@@ -104,43 +117,80 @@
   </footer>
 
   <script>
-    fetch('products.json')
-      .then(res => res.json())
-      .then(products => {
-        const container = document.getElementById('catalogue-container');
-        products.forEach(product => {
-          const colors = product.colors.map(c =>
-            `<span class="color-option" style="background-color: ${c};" title="${c}"></span>`
-          ).join('');
+    let allProducts = [];
 
-          const card = `
-            <div class="col-md-4">
-              <div class="card product-card shadow-sm">
-                <img src="img/${product.image}" class="product-image card-img-top" alt="${product.title}">
-                <div class="card-body">
-                  <h5 class="card-title mb-2">${product.title}</h5>
-                  <p class="card-text small">${product.description}</p>
-                  <div class="mb-2">
-                    <span class="text-muted small">Colors:</span>
-                    <div class="mt-1">${colors}</div>
-                  </div>
-                  <div class="mb-3">
-                    <span class="h5 text-primary">$${product.price.toFixed(2)}</span>
-                  </div>
-                  <div class="d-grid gap-2">
-                    <a href="${product.etsy}" target="_blank" class="btn btn-outline-light">
-                      <i class="fab fa-etsy me-2"></i>Buy on Etsy
-                    </a>
-                    <a href="${product.kofi}" target="_blank" class="btn btn-outline-secondary">
-                      <i class="fas fa-mug-hot me-2"></i>Buy on Ko-Fi
-                    </a>
-                  </div>
+    function renderFilters(tags) {
+      const container = document.getElementById("tag-filters");
+      const uniqueTags = [...new Set(tags)];
+      container.innerHTML = `
+        <button class="btn btn-sm btn-outline-light btn-filter" data-tag="all">All</button>
+        ${uniqueTags.map(tag => `
+          <button class="btn btn-sm btn-outline-light btn-filter" data-tag="${tag}">${tag}</button>
+        `).join('')}
+      `;
+      document.querySelectorAll('.btn-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tag = btn.getAttribute('data-tag');
+          if (tag === "all") {
+            renderProducts(allProducts);
+          } else {
+            const filtered = allProducts.filter(p => p.tags.includes(tag));
+            renderProducts(filtered);
+          }
+        });
+      });
+    }
+
+    function renderProducts(products) {
+      const container = document.getElementById('catalogue-container');
+      container.innerHTML = '';
+      products.forEach(product => {
+        const colors = product.colors.map(c =>
+          `<span class="color-option" style="background-color: ${c};" title="${c}"></span>`
+        ).join('');
+
+        const tags = product.tags.map(t =>
+          `<span class="badge bg-secondary me-1">${t}</span>`
+        ).join('');
+
+        const card = `
+          <div class="col-md-4 product-card-item">
+            <div class="card product-card shadow-sm">
+              <img src="img/${product.image}" class="product-image card-img-top" alt="${product.title}">
+              <div class="card-body">
+                <h5 class="card-title mb-2">${product.title}</h5>
+                <p class="card-text small">${product.description}</p>
+                <div class="mb-2">${tags}</div>
+                <div class="mb-2">
+                  <span class="text-muted small">Colors:</span>
+                  <div class="mt-1">${colors}</div>
+                </div>
+                <div class="mb-3">
+                  <span class="h5 text-primary">$${product.price.toFixed(2)}</span>
+                </div>
+                <div class="d-grid gap-2">
+                  <a href="${product.etsy}" target="_blank" class="btn btn-outline-light">
+                    <i class="fab fa-etsy me-2"></i>Buy on Etsy
+                  </a>
+                  <a href="${product.kofi}" target="_blank" class="btn btn-outline-secondary">
+                    <i class="fas fa-mug-hot me-2"></i>Buy on Ko-Fi
+                  </a>
                 </div>
               </div>
             </div>
-          `;
-          container.innerHTML += card;
-        });
+          </div>
+        `;
+        container.innerHTML += card;
+      });
+    }
+
+    fetch('products.json')
+      .then(res => res.json())
+      .then(products => {
+        allProducts = products;
+        renderProducts(products);
+        const tagList = products.flatMap(p => p.tags);
+        renderFilters(tagList);
       });
   </script>
 </body>

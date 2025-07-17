@@ -6,7 +6,8 @@
     "price": 19.99,
     "etsy": "https://www.etsy.com/listing/your-product-id-1",
     "kofi": "https://ko-fi.com/yourusername/shop/neon-spirit",
-    "colors": ["#09C8C9", "#5AD6F5", "#B4ADEA"]
+    "colors": ["#09C8C9", "#5AD6F5", "#B4ADEA"],
+    "tags": ["Print", "Valorant", "Acrylic"]
   },
   {
     "title": "Gothic Raven Art",
@@ -15,7 +16,8 @@
     "price": 14.50,
     "etsy": "https://www.etsy.com/listing/your-product-id-2",
     "kofi": "https://ko-fi.com/yourusername/shop/gothic-raven",
-    "colors": ["#212227", "#C60F7B", "#B986CF"]
+    "colors": ["#212227", "#C60F7B", "#B986CF"],
+    "tags": ["Print", "Gothic", "Birds"]
   },
   {
     "title": "Witch Cat Postcard",
@@ -24,6 +26,7 @@
     "price": 6.00,
     "etsy": "https://www.etsy.com/listing/your-product-id-3",
     "kofi": "https://ko-fi.com/yourusername/shop/witch-cat",
-    "colors": ["#BD5EB3", "#C23797", "#B4ADEA"]
+    "colors": ["#BD5EB3", "#C23797", "#B4ADEA"],
+    "tags": ["Postcard", "Cats", "Cute"]
   }
 ]
