@@ -2,257 +2,233 @@
 <html lang="en" data-bs-theme="dark">
 
 <head>
-    <title>Catalogue | Kyo's Delivery Service</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-    <style>
-        :root {
-            --color-bg: #212227;
-            --color-accent: #C60F7B;
-            --color-highlight: #B986CF;
-            --color-primary: #09C8C9;
-            --color-light: #5AD6F5;
-            --color-title: #B4ADEA;
-            --color-soft-pink: #BD5EB3;
-            --color-purple: #C23797;
-        }
+  <title>Catalogue | Kyo's Delivery Service</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --color-bg: #212227;
+      --color-accent: #C60F7B;
+      --color-highlight: #B986CF;
+      --color-primary: #09C8C9;
+      --color-light: #5AD6F5;
+      --color-title: #B4ADEA;
+      --color-soft-pink: #BD5EB3;
+      --color-purple: #C23797;
+    }
 
-        body {
-            background-color: var(--color-bg);
-            color: #ffffff;
-        }
+    body {
+      background-color: var(--color-bg);
+      color: #ffffff;
+    }
 
-        .navbar {
-            background-color: var(--color-bg);
-        }
+    .navbar {
+      background-color: var(--color-bg);
+    }
 
-        .navbar-brand,
-        .nav-link {
-            color: var(--color-light) !important;
-        }
+    .navbar-brand,
+    .nav-link {
+      color: var(--color-light) !important;
+    }
 
-        .navbar-brand:hover,
-        .nav-link:hover {
-            color: var(--color-accent) !important;
-        }
+    .navbar-brand:hover,
+    .nav-link:hover {
+      color: var(--color-accent) !important;
+    }
 
-        .product-card {
-            background: linear-gradient(135deg, var(--color-highlight), var(--color-bg));
-            border: none;
-            color: #fff;
-            transition: transform 0.3s ease;
-        }
+    .product-card {
+      background: linear-gradient(135deg, var(--color-highlight), var(--color-bg));
+      border: none;
+      color: #fff;
+      transition: transform 0.3s ease;
+    }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-        }
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
 
-        .color-option {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            margin-right: 6px;
-            border: 2px solid #fff;
-            cursor: pointer;
-        }
+    .product-image {
+      max-height: 300px;
+      object-fit: cover;
+      margin-bottom: 1rem;
+    }
 
-        .product-image {
-            max-height: 300px;
-            object-fit: cover;
-        }
+    footer {
+      background-color: var(--color-bg);
+      color: var(--color-soft-pink);
+    }
 
-        footer {
-            background-color: var(--color-bg);
-            color: var(--color-soft-pink);
-        }
+    .btn-filter {
+      margin: 0.25rem;
+    }
 
-        .btn-filter {
-            margin: 0.25rem;
-        }
-
-        .badge {
-            font-size: 0.75rem;
-        }
-    </style>
+    .badge {
+      font-size: 0.75rem;
+    }
+  </style>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="#">Kyo's Delivery Service</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Ko-Fi</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Etsy</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Catalogue Section -->
-    <div class="container py-5">
-        <h2 class="text-center mb-4" style="color: var(--color-title);">Catalogue</h2>
-
-        <!-- Filter Buttons -->
-        <div class="text-center mb-4" id="tag-filters"></div>
-
-        <!-- Product Cards -->
-        <div class="row g-4" id="catalogue-container"></div>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="#">Kyo's Delivery Service</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Ko-Fi</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Etsy</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+        </ul>
+      </div>
     </div>
+  </nav>
 
-    <!-- Footer -->
-    <footer class="text-center py-4 mt-5">
-        <p class="mb-0">&copy; 2025 Kyo's Delivery Service. All rights reserved.</p>
-    </footer>
+  <!-- Catalogue Section -->
+  <div class="container py-5">
+    <h2 class="text-center mb-4" style="color: var(--color-title);">Catalogue</h2>
+    <div class="text-center mb-4" id="tag-filters"></div>
+    <div class="row g-4" id="catalogue-container"></div>
+  </div>
 
-    <script>
-        let allProducts = [];
-        let filteredProducts = [];
-        let currentPage = 1;
-        const productsPerPage = 6;
+  <!-- Footer -->
+  <footer class="text-center py-4 mt-5">
+    <p class="mb-0">&copy; 2025 Kyo's Delivery Service. All rights reserved.</p>
+  </footer>
 
-        function renderFilters(tags) {
-            const container = document.getElementById("tag-filters");
-            const uniqueTags = [...new Set(tags)];
-            container.innerHTML = `
-      <div class="mb-3">
-        <input type="text" class="form-control form-control-sm text-dark" placeholder="Search by title or tag…" id="searchBox">
-      </div>
-      <div class="d-flex flex-wrap justify-content-center">
-        <button class="btn btn-sm btn-outline-light btn-filter m-1" data-tag="all">All</button>
-        ${uniqueTags.map(tag => `
-          <button class="btn btn-sm btn-outline-light btn-filter m-1" data-tag="${tag}">${tag}</button>
-        `).join('')}
-      </div>
-    `;
+  <script>
+    let allProducts = [];
+    let filteredProducts = [];
+    let currentPage = 1;
+    const productsPerPage = 6;
 
-            // Search input
-            document.getElementById('searchBox').addEventListener('input', e => {
-                const term = e.target.value.toLowerCase();
-                filteredProducts = allProducts.filter(p =>
-                    p.title.toLowerCase().includes(term) ||
-                    p.tags.some(tag => tag.toLowerCase().includes(term))
-                );
-                currentPage = 1;
-                renderPaginatedProducts();
-            });
+    function renderFilters(tags) {
+      const container = document.getElementById("tag-filters");
+      const uniqueTags = [...new Set(tags)];
+      container.innerHTML = `
+        <div class="mb-3">
+          <input type="text" class="form-control form-control-sm text-dark" placeholder="Search by title or tag…" id="searchBox">
+        </div>
+        <div class="d-flex flex-wrap justify-content-center">
+          <button class="btn btn-sm btn-outline-light btn-filter m-1" data-tag="all">All</button>
+          ${uniqueTags.map(tag => `
+            <button class="btn btn-sm btn-outline-light btn-filter m-1" data-tag="${tag}">${tag}</button>
+          `).join('')}
+        </div>
+      `;
 
-            // Filter buttons
-            container.querySelectorAll('.btn-filter').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const tag = btn.getAttribute('data-tag');
-                    if (tag === "all") {
-                        filteredProducts = [...allProducts];
-                    } else {
-                        filteredProducts = allProducts.filter(p => p.tags.includes(tag));
-                    }
-                    document.getElementById('searchBox').value = '';
-                    currentPage = 1;
-                    renderPaginatedProducts();
-                });
-            });
-        }
+      document.getElementById('searchBox').addEventListener('input', e => {
+        const term = e.target.value.toLowerCase();
+        filteredProducts = allProducts.filter(p =>
+          p.title.toLowerCase().includes(term) ||
+          p.tags.some(tag => tag.toLowerCase().includes(term))
+        );
+        currentPage = 1;
+        renderPaginatedProducts();
+      });
 
-        function renderPaginatedProducts() {
-            const container = document.getElementById('catalogue-container');
-            container.innerHTML = '';
+      container.querySelectorAll('.btn-filter').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const tag = btn.getAttribute('data-tag');
+          if (tag === "all") {
+            filteredProducts = [...allProducts];
+          } else {
+            filteredProducts = allProducts.filter(p => p.tags.includes(tag));
+          }
+          document.getElementById('searchBox').value = '';
+          currentPage = 1;
+          renderPaginatedProducts();
+        });
+      });
+    }
 
-            const start = (currentPage - 1) * productsPerPage;
-            const end = start + productsPerPage;
-            const pageProducts = filteredProducts.slice(start, end);
+    function renderPaginatedProducts() {
+      const container = document.getElementById('catalogue-container');
+      container.innerHTML = '';
 
-            pageProducts.forEach(product => {
-                const colors = product.colors.map(c =>
-                    `<span class="color-option" style="background-color: ${c};" title="${c}"></span>`
-                ).join('');
+      const start = (currentPage - 1) * productsPerPage;
+      const end = start + productsPerPage;
+      const pageProducts = filteredProducts.slice(start, end);
 
-                const tags = product.tags.map(t =>
-                    `<span class="badge bg-secondary me-1">${t}</span>`
-                ).join('');
+      pageProducts.forEach(product => {
+        const tags = product.tags.map(t =>
+          `<span class="badge bg-secondary me-1">${t}</span>`
+        ).join('');
 
-                const card = `
-        <div class="col-md-4 product-card-item">
-          <div class="card product-card shadow-sm">
-            <img src="img/${product.image}" class="product-image card-img-top" alt="${product.title}">
-            <div class="card-body">
-              <h5 class="card-title mb-2">${product.title}</h5>
-              <p class="card-text small">${product.description}</p>
-              <div class="mb-2">${tags}</div>
-              <div class="mb-2">
-                <span class="text-muted small">Colors:</span>
-                <div class="mt-1">${colors}</div>
-              </div>
-              <div class="mb-3">
-                <span class="h5 text-primary">$${product.price.toFixed(2)}</span>
-              </div>
-              <div class="d-grid gap-2">
-                <a href="${product.etsy}" target="_blank" class="btn btn-outline-light">
-                  <i class="fab fa-etsy me-2"></i>Buy on Etsy
-                </a>
-                <a href="${product.kofi}" target="_blank" class="btn btn-outline-secondary">
-                  <i class="fas fa-mug-hot me-2"></i>Buy on Ko-Fi
-                </a>
+        const card = `
+          <div class="col-md-4 product-card-item">
+            <div class="card product-card shadow-sm p-3">
+              <div class="card-body">
+                <h5 class="card-title mb-2">${product.title}</h5>
+                <img src="img/${product.image}" class="product-image img-fluid rounded" alt="${product.title}">
+                <p class="card-text small">${product.description}</p>
+                <div class="mb-2">${tags}</div>
+                <div class="mb-3">
+                  <span class="h5 text-primary">$${product.price.toFixed(2)}</span>
+                </div>
+                <div class="d-grid gap-2">
+                  <a href="${product.etsy}" target="_blank" class="btn btn-outline-light">
+                    <i class="fab fa-etsy me-2"></i>Buy on Etsy
+                  </a>
+                  <a href="${product.kofi}" target="_blank" class="btn btn-outline-secondary">
+                    <i class="fas fa-mug-hot me-2"></i>Buy on Ko-Fi
+                  </a>
+                </div>
               </div>
             </div>
           </div>
+        `;
+        container.innerHTML += card;
+      });
+
+      renderPaginationControls();
+    }
+
+    function renderPaginationControls() {
+      const container = document.getElementById('catalogue-container');
+      const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+      if (totalPages <= 1) return;
+
+      const paginationHTML = `
+        <div class="col-12 text-center mt-4">
+          <button class="btn btn-sm btn-outline-light me-2" ${currentPage === 1 ? 'disabled' : ''} id="prevPage">Previous</button>
+          <span class="text-muted">Page ${currentPage} of ${totalPages}</span>
+          <button class="btn btn-sm btn-outline-light ms-2" ${currentPage === totalPages ? 'disabled' : ''} id="nextPage">Next</button>
         </div>
       `;
-                container.innerHTML += card;
-            });
+      container.innerHTML += paginationHTML;
 
-            renderPaginationControls();
+      document.getElementById('prevPage')?.addEventListener('click', () => {
+        if (currentPage > 1) {
+          currentPage--;
+          renderPaginatedProducts();
         }
+      });
 
-        function renderPaginationControls() {
-            const container = document.getElementById('catalogue-container');
-            const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
-
-            if (totalPages <= 1) return;
-
-            const paginationHTML = `
-      <div class="col-12 text-center mt-4">
-        <button class="btn btn-sm btn-outline-light me-2" ${currentPage === 1 ? 'disabled' : ''} id="prevPage">Previous</button>
-        <span class="text-muted">Page ${currentPage} of ${totalPages}</span>
-        <button class="btn btn-sm btn-outline-light ms-2" ${currentPage === totalPages ? 'disabled' : ''} id="nextPage">Next</button>
-      </div>
-    `;
-            container.innerHTML += paginationHTML;
-
-            document.getElementById('prevPage')?.addEventListener('click', () => {
-                if (currentPage > 1) {
-                    currentPage--;
-                    renderPaginatedProducts();
-                }
-            });
-
-            document.getElementById('nextPage')?.addEventListener('click', () => {
-                if (currentPage < totalPages) {
-                    currentPage++;
-                    renderPaginatedProducts();
-                }
-            });
+      document.getElementById('nextPage')?.addEventListener('click', () => {
+        if (currentPage < totalPages) {
+          currentPage++;
+          renderPaginatedProducts();
         }
+      });
+    }
 
-        fetch('products.json')
-            .then(res => res.json())
-            .then(products => {
-                allProducts = products;
-                filteredProducts = [...products];
-                renderFilters(products.flatMap(p => p.tags));
-                renderPaginatedProducts();
-            });
-    </script>
+    fetch('products.json')
+      .then(res => res.json())
+      .then(products => {
+        allProducts = products;
+        filteredProducts = [...products];
+        renderFilters(products.flatMap(p => p.tags));
+        renderPaginatedProducts();
+      });
+  </script>
 
 </body>
 
