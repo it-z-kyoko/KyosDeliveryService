@@ -2,24 +2,114 @@
 <html lang="en" data-bs-theme="dark">
 
 <head>
-    <title>Bootstrap 5 Example</title>
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kyo's Delivery Service</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <style>
+        :root {
+            --color-bg: #212227;
+            --color-accent: #C60F7B;
+            --color-highlight: #B986CF;
+            --color-primary: #09C8C9;
+            --color-light: #5AD6F5;
+            --color-title: #B4ADEA;
+            --color-soft-pink: #BD5EB3;
+            --color-purple: #C23797;
+        }
+
+        body {
+            background-color: var(--color-bg);
+            color: #ffffff;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: var(--color-bg);
+        }
+
+        .navbar-brand,
+        .nav-link {
+            color: var(--color-light) !important;
+        }
+
+        .navbar-brand:hover,
+        .nav-link:hover {
+            color: var(--color-accent) !important;
+        }
+
+        /* Card Styles */
+        .card-sleek {
+            background: linear-gradient(135deg, var(--color-highlight), var(--color-bg));
+            color: #fff;
+        }
+
+        .card-sleek2 {
+            background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
+            color: #fff;
+        }
+
+        .card-sleek3 {
+            background: linear-gradient(135deg, var(--color-title), var(--color-bg));
+            color: #fff;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card-body {
+            padding: 2rem;
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            color: var(--color-light);
+        }
+
+        .card-text {
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .btn-outline-light {
+            border-color: var(--color-primary);
+            color: var(--color-primary);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--color-primary);
+            color: #000;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--color-bg);
+            color: var(--color-soft-pink);
+        }
+    </style>
 </head>
-<header>
-    <nav class="navbar navbar-expand-lg">
+
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Home</a>
+            <a class="navbar-brand fw-bold" href="#">Kyo's Delivery Service</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
+                <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="#">Social Media</a>
+                        <a class="nav-link" href="#">Social Media</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Ko-Fi</a>
@@ -34,142 +124,95 @@
             </div>
         </div>
     </nav>
-</header>
 
-<body>
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <h2>About Me</h2>
-                <h5>Photo of me:</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>
-                    Hi! I'm Kyo (they/them) and I am the owner and one-person-army of this shop! I am currently 20 years old and working full time as an it specialist<br>
-                    I created <i>Kyo's Delivery Service</i> as a cozy place where I can share my passion
-                    <br>
-                    At my shop, you'll find digital arts portraying different characters from different fandoms. 
-                    <br>
-                    However, I've only been a "fanart" artist since end of 2024. I've ever only drawn my OCs before, so the shift to fanarts was a huge jump, since I have a character that should be recognisable in my drawings :3
-                    <br>
-                    Art has always been my way of expressing myself and connecting with people. Back when I was young (as if I still aren't xD), being interested in Anime was considered weird and often times the cause of unwanted commentary. But no matter what, I've stayed loyal to the style and continue drawing in an anime-inspired style.
-                    <br>
-                    Thanks for stopping by! Have a look around and if you have any questions, feel free to reach out! I'd love to help out
-                </p>
-            </div>
-            <div class="col-sm-8">
-                <h2>WHEN DID I START ALL OF THIS?</h2>
-                <h5>The Beginning, 07/16/2025</h5>
-                <div class="fakeimg">Fake Image</div>
-                <p>img text</p>
-                <p>
-                    I've started planning this shop in general for over a year. But now with a huge upgrade of my drawing equipments and some motivation my besties gave me (thx for that :3) I decided to take matters into my own hands and actually do all the steps nececcary to put up a shop.
-                </p>
-            </div>
-        </div>
-    </div>
-    </div>
-    <div class="container pt-10">
-        <div class="row">
-            <div class="col">
-                <div class="card card-sleek"
-                    style=" border: none; overflow: hidden; height: 100%; border-radius: 10px;">
+    <!-- About Section -->
+    <div class="container py-5">
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card bg-dark text-white">
                     <div class="card-body">
-                        <h2 class="card-title text-center">Newest Posts</h2>
-                        <p class="card-text">View my latest posts.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card card-sleek2"
-                    style=" border: none; overflow: hidden; height: 100%; border-radius: 10px; margin-left : 40px">
-                    <div class="card-body">
-                        <h2 class="card-title text-center">Catalogue</h2>
-                        <p class="card-text">
-                            An overview of all the products and prints I offer in my shop
+                        <h2 class="card-title">About Me</h2>
+                        <h5>Photo of me:</h5>
+                        <figure>
+                            <img src="img/PXL_20250608_053714685.jpg" class="img-fluid rounded mb-3" alt="Your Photo">
+                            <figcaption style="font-size: small;">My Cosplay of Neon from Valorant @Dokomi 2025</figcaption>
+                        </figure>
+                        <p>
+                            Hi! I'm Kyo (they/them) and I am the owner and one-person-army of this shop! I am currently
+                            20 years old and working full time as an IT specialist.
+                            <br><br>
+                            I created <i>Kyo's Delivery Service</i> as a cozy place where I can share my passion.
+                            <br><br>
+                            At my shop, you'll find digital arts portraying different characters from different fandoms.
+                            <br><br>
+                            However, I've only been a "fanart" artist since end of 2024. I used to only draw my OCs, so
+                            the shift to fanarts was a huge jump — now I need to make characters recognizable in my
+                            drawings :3
+                            <br><br>
+                            Art has always been my way of expressing myself and connecting with people. When I was
+                            younger (as if I still aren't xD), being into Anime was considered weird and got a lot of
+                            comments. But I stayed loyal to the style and keep drawing in an anime-inspired way.
+                            <br><br>
+                            Thanks for stopping by! Have a look around and if you have any questions, feel free to reach
+                            out! I'd love to help out!
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col">
-                <div class="card card-sleek3"
-                    style=" border: none; overflow: hidden; height: 100%; height: 100%; border-radius: 10px; margin-left : 40px">
+
+            <div class="col-md-8">
+                <div class="card bg-dark text-light">
                     <div class="card-body">
-                        <h2 class="card-title text-center">Commission</h2>
-                        <p class="card-text">
-                            You want a special artwork done just for you? Check out the page!
+                        <h2 class="card-title">WHEN DID I START ALL OF THIS?</h2>
+                        <h5 class="text-muted">The Beginning, end of 2024</h5>
+                        <p>
+                            I've started planning this shop for over a year. But with a huge upgrade in my drawing
+                            equipment and encouragement from my besties (thx for that :3), I decided to take matters
+                            into my own hands and actually do all the steps necessary to put up a shop.
                         </p>
+                    </div>
+                </div>
+                <div class="container py-5">
+                    <div class="row g-4 text-center">
+                        <div class="col-md-4">
+                            <div class="card card-sleek h-100">
+                                <div class="card-body">
+                                    <h2 class="card-title"><i class="bi bi-stars me-2"></i>Newest Posts</h2>
+                                    <p class="card-text">View my latest posts.</p>
+                                    <a href="#" class="btn btn-outline-light btn-sm">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-sleek2 h-100">
+                                <div class="card-body">
+                                    <h2 class="card-title"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Catalogue</h2>
+                                    <p class="card-text">An overview of all the products and prints I offer in my shop.
+                                    </p>
+                                    <a href="Catalogue/catalogue.html" class="btn btn-outline-light btn-sm">Explore</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card card-sleek3 h-100">
+                                <div class="card-body">
+                                    <h2 class="card-title"><i class="bi bi-brush me-2"></i>Commission</h2>
+                                    <p class="card-text">Want a special artwork made just for you? Check out the
+                                        commission page!</p>
+                                    <a href="#" class="btn btn-outline-light btn-sm">Commission Me</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <!-- Footer -->
+    <footer class="text-center py-4 mt-5">
+        <p class="mb-0">&copy; 2025 Kyo's Delivery Service. All rights reserved.</p>
+    </footer>
 </body>
 
 </html>
-
-<style>
-    .card-sleek {
-        background: linear-gradient(135deg, #be85d8, #3c3f3f);
-        color: #fff;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .card-sleek2 {
-        background: linear-gradient(135deg, #ff26ed, #55362d);
-        color: #fff;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-
-
-    .card-sleek3 {
-        background: linear-gradient(135deg, #ac5cc0, #573e5e);
-        color: #fff;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-
-
-    .card-sleek4 {
-        background: linear-gradient(135deg, #ff3be5, #25241a);
-        color: #fff;
-        border-radius: 20px;
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-        transition: transform 0.3s ease-in-out;
-    }
-
-    .card:hover {
-        transform: translateY(-5px);
-    }
-
-    .card-body {
-        padding: 2rem;
-    }
-
-    .card-title {
-        font-size: 1.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-    }
-
-    .card-text {
-        font-size: 1rem;
-        line-height: 1.5;
-    }
-
-    .btn-sleek {
-        background-color: #fff;
-        color: #667eea;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
-    }
-
-    .btn-sleek:hover {
-        background-color: #667eea;
-        color: #fff;
-    }
-</style>

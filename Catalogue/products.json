@@ -1,0 +1,29 @@
+[
+  {
+    "title": "Neon Spirit Print",
+    "image": "neon_spirit.jpg",
+    "description": "A vibrant 20x30cm acrylic print of Neon from Valorant, captured with an electrifying style.",
+    "price": 19.99,
+    "etsy": "https://www.etsy.com/listing/your-product-id-1",
+    "kofi": "https://ko-fi.com/yourusername/shop/neon-spirit",
+    "colors": ["#09C8C9", "#5AD6F5", "#B4ADEA"]
+  },
+  {
+    "title": "Gothic Raven Art",
+    "image": "gothic_raven.jpg",
+    "description": "Dark and elegant raven artwork inspired by gothic anime style. Available as a high-quality print.",
+    "price": 14.50,
+    "etsy": "https://www.etsy.com/listing/your-product-id-2",
+    "kofi": "https://ko-fi.com/yourusername/shop/gothic-raven",
+    "colors": ["#212227", "#C60F7B", "#B986CF"]
+  },
+  {
+    "title": "Witch Cat Postcard",
+    "image": "witch_cat.jpg",
+    "description": "A cute magical cat with a delivery bag, printed on matte textured 10x15cm postcard paper.",
+    "price": 6.00,
+    "etsy": "https://www.etsy.com/listing/your-product-id-3",
+    "kofi": "https://ko-fi.com/yourusername/shop/witch-cat",
+    "colors": ["#BD5EB3", "#C23797", "#B4ADEA"]
+  }
+]
