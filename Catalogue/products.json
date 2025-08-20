@@ -1,32 +1,42 @@
 [
   {
-    "title": "Neon Spirit Print",
+    "title": "Zoe (LoL) Space Fanart",
     "image": "neon_spirit.jpg",
-    "description": "A vibrant 20x30cm acrylic print of Neon from Valorant, captured with an electrifying style.",
-    "price": 19.99,
+    "description": "...",
+    "price": 7.00,
     "etsy": "https://www.etsy.com/listing/your-product-id-1",
     "kofi": "https://ko-fi.com/yourusername/shop/neon-spirit",
     "colors": ["#09C8C9", "#5AD6F5", "#B4ADEA"],
-    "tags": ["Print", "Valorant", "Acrylic"]
+    "tags": ["Print", "League of Legends", "Fanart"]
   },
   {
-    "title": "Gothic Raven Art",
+    "title": "HuTao Fanart",
     "image": "gothic_raven.jpg",
-    "description": "Dark and elegant raven artwork inspired by gothic anime style. Available as a high-quality print.",
-    "price": 14.50,
+    "description": "...",
+    "price": 7.00,
     "etsy": "https://www.etsy.com/listing/your-product-id-2",
     "kofi": "https://ko-fi.com/yourusername/shop/gothic-raven",
     "colors": ["#212227", "#C60F7B", "#B986CF"],
-    "tags": ["Print", "Gothic", "Birds"]
+    "tags": ["Print", "Genshin", "Fanart"]
   },
   {
-    "title": "Witch Cat Postcard",
+    "title": "Zoe (OC) Flame Mask Artwork",
     "image": "witch_cat.jpg",
-    "description": "A cute magical cat with a delivery bag, printed on matte textured 10x15cm postcard paper.",
-    "price": 6.00,
+    "description": "...",
+    "price": 7.00,
     "etsy": "https://www.etsy.com/listing/your-product-id-3",
     "kofi": "https://ko-fi.com/yourusername/shop/witch-cat",
     "colors": ["#BD5EB3", "#C23797", "#B4ADEA"],
-    "tags": ["Postcard", "Cats", "Cute"]
+    "tags": ["Print", "OC", "Zoe"]
+  },
+  {
+    "title": "Castorice Portrait",
+    "image": "witch_cat.jpg",
+    "description": "...",
+    "price": 7.00,
+    "etsy": "https://www.etsy.com/listing/your-product-id-3",
+    "kofi": "https://ko-fi.com/yourusername/shop/witch-cat",
+    "colors": ["#BD5EB3", "#C23797", "#B4ADEA"],
+    "tags": ["Print", "Honkai Star Rail", "Castorice"]
   }
 ]
