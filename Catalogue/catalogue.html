@@ -167,7 +167,7 @@
             <div class="card product-card shadow-sm p-3">
               <div class="card-body">
                 <h5 class="card-title mb-2">${product.title}</h5>
-                <img src="img/${product.image}" class="product-image img-fluid rounded" alt="${product.title}">
+                <img src="img/${product.image}" class="product-image img-fluid rounded" alt="${product.title}" onerror="this.onerror=null; this.src='img/ComingSoon.png'">
                 <p class="card-text small">${product.description}</p>
                 <div class="mb-2">${tags}</div>
                 <div class="mb-3">
@@ -233,3 +233,14 @@
 </body>
 
 </html>
+
+<style>
+  .card-body{
+        align-self: center;
+            display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+</style>
