@@ -1,220 +1,1148 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" data-bs-theme="dark">
-
-<head>
-    <title>Kyo's Delivery Service</title>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <!-- Bootstrap Icons -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Kyo Portfolio</title>
+
+    <meta
+      name="description"
+      content="Kyo's creative portfolio featuring photography, cosplay, digital art, and programming projects."
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
     <style>
-        :root {
-            --color-bg: #212227;
-            --color-accent: #C60F7B;
-            --color-highlight: #B986CF;
-            --color-primary: #09C8C9;
-            --color-light: #5AD6F5;
-            --color-title: #B4ADEA;
-            --color-soft-pink: #BD5EB3;
-            --color-purple: #C23797;
+      :root {
+        --kyo-bg: #16171c;
+        --kyo-surface: #212227;
+        --kyo-surface-2: #262830;
+        --kyo-accent: #c60f7b;
+        --kyo-highlight: #b986cf;
+        --kyo-primary: #09c8c9;
+        --kyo-light: #5ad6f5;
+        --kyo-title: #b4adea;
+        --kyo-purple: #c23797;
+        --kyo-text-soft: rgba(255, 255, 255, 0.74);
+        --kyo-border: rgba(255, 255, 255, 0.12);
+      }
+
+      body {
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(198, 15, 123, 0.1),
+            transparent 25%
+          ),
+          radial-gradient(
+            circle at top right,
+            rgba(9, 200, 201, 0.1),
+            transparent 25%
+          ),
+          linear-gradient(180deg, #111217 0%, var(--kyo-bg) 100%);
+        min-height: 100vh;
+      }
+
+      .bg-kyo {
+        background-color: var(--kyo-bg) !important;
+      }
+
+      .bg-kyo-surface {
+        background-color: var(--kyo-surface) !important;
+      }
+
+      .text-kyo-light {
+        color: var(--kyo-light) !important;
+      }
+
+      .text-kyo-title {
+        color: var(--kyo-title) !important;
+      }
+
+      .text-kyo-accent {
+        color: var(--kyo-accent) !important;
+      }
+
+      .text-kyo-soft {
+        color: var(--kyo-text-soft) !important;
+      }
+
+      .border-kyo {
+        border-color: var(--kyo-border) !important;
+      }
+
+      .btn-kyo-primary {
+        background-color: var(--kyo-primary);
+        border-color: var(--kyo-primary);
+        color: #111;
+      }
+
+      .btn-kyo-primary:hover {
+        background-color: var(--kyo-light);
+        border-color: var(--kyo-light);
+        color: #111;
+      }
+
+      .btn-kyo-accent {
+        background-color: var(--kyo-accent);
+        border-color: var(--kyo-accent);
+        color: #fff;
+      }
+
+      .btn-kyo-accent:hover {
+        background-color: var(--kyo-purple);
+        border-color: var(--kyo-purple);
+        color: #fff;
+      }
+
+      .btn-outline-kyo {
+        color: var(--kyo-primary);
+        border-color: var(--kyo-primary);
+      }
+
+      .btn-outline-kyo:hover {
+        background-color: var(--kyo-primary);
+        border-color: var(--kyo-primary);
+        color: #111;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(
+          135deg,
+          rgba(198, 15, 123, 0.18),
+          rgba(9, 200, 201, 0.12),
+          rgba(185, 134, 207, 0.18)
+        );
+      }
+
+      .soft-card {
+        background-color: rgba(33, 34, 39, 0.88);
+        border: 1px solid var(--kyo-border);
+        backdrop-filter: blur(10px);
+      }
+
+      .category-card {
+        background-color: var(--kyo-surface);
+        border: 1px solid var(--kyo-border);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease,
+          border-color 0.2s ease;
+      }
+
+      .category-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.25);
+        border-color: rgba(90, 214, 245, 0.35);
+      }
+
+      .highlight-card {
+        background-color: var(--kyo-surface);
+        border: 1px solid var(--kyo-border);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .highlight-card:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.22);
+      }
+
+      .icon-circle {
+        width: 60px;
+        height: 60px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 50%;
+        font-size: 1.4rem;
+        background-color: rgba(255, 255, 255, 0.08);
+      }
+
+      .section-badge {
+        display: inline-block;
+        padding: 0.5rem 0.9rem;
+        border-radius: 999px;
+        background-color: rgba(255, 255, 255, 0.06);
+        border: 1px solid var(--kyo-border);
+        color: var(--kyo-light);
+        font-size: 0.9rem;
+      }
+
+      .object-fit-cover {
+        object-fit: cover;
+      }
+
+      .hero-image {
+        min-height: 420px;
+        max-height: 560px;
+        width: 100%;
+      }
+
+      .preview-box {
+        min-height: 240px;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(198, 15, 123, 0.14),
+            rgba(9, 200, 201, 0.1)
+          ),
+          var(--kyo-surface-2);
+        border: 1px solid var(--kyo-border);
+      }
+
+      .stat-box {
+        background-color: rgba(255, 255, 255, 0.03);
+        border: 1px solid var(--kyo-border);
+      }
+
+      .navbar-brand,
+      .nav-link {
+        transition: 0.2s ease;
+      }
+
+      .nav-link:hover {
+        color: var(--kyo-light) !important;
+      }
+
+      .footer-link {
+        color: var(--kyo-light);
+      }
+
+      .footer-link:hover {
+        color: #fff;
+      }
+
+      .hero-title {
+        line-height: 1.05;
+      }
+
+      .hero-subline {
+        max-width: 760px;
+      }
+
+      .carousel-inner,
+      .carousel-item {
+        min-height: 100%;
+      }
+
+      #spotlightCarousel {
+        height: 100%;
+      }
+
+      #spotlightCarousel .carousel-inner {
+        height: 100%;
+        border-radius: 2rem;
+        overflow: hidden;
+      }
+
+      #spotlightCarousel .carousel-item {
+        height: 100%;
+        padding-bottom: 2.5rem;
+      }
+
+      #spotlightCarousel .carousel-indicators {
+        bottom: -0.5rem;
+      }
+
+      #spotlightCarousel .carousel-indicators [data-bs-target] {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+      }
+
+      #spotlightCarousel .carousel-control-prev,
+      #spotlightCarousel .carousel-control-next {
+        width: 10%;
+      }
+
+      #spotlightCarousel .carousel-control-prev-icon,
+      #spotlightCarousel .carousel-control-next-icon {
+        background-size: 70% 70%;
+        filter: drop-shadow(0 0 6px rgba(0, 0, 0, 0.45));
+      }
+
+      .spotlight-slide-card {
+        background-color: var(--kyo-surface);
+        border: 1px solid var(--kyo-border);
+        overflow: hidden;
+        min-height: 420px;
+      }
+
+      .spotlight-image-wrap {
+        position: relative;
+        height: 100%;
+        min-height: 260px;
+        background-color: var(--kyo-surface-2);
+      }
+
+      .spotlight-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        min-height: 260px;
+      }
+
+      .spotlight-overlay-badge {
+        position: absolute;
+        top: 1rem;
+        left: 1rem;
+        z-index: 2;
+        background-color: rgba(0, 0, 0, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        color: #fff;
+        padding: 0.45rem 0.85rem;
+        border-radius: 999px;
+        font-size: 0.85rem;
+        backdrop-filter: blur(6px);
+      }
+
+      .spotlight-content {
+        height: 100%;
+      }
+
+      .spotlight-title {
+        font-size: 1.65rem;
+        line-height: 1.2;
+      }
+
+      .spotlight-meta {
+        color: var(--kyo-text-soft);
+        font-size: 0.95rem;
+      }
+
+      @media (max-width: 991.98px) {
+        .spotlight-slide-card {
+          min-height: auto;
         }
 
-        body {
-            background-color: var(--color-bg);
-            color: #ffffff;
+        .spotlight-content {
+          padding-top: 0 !important;
         }
-
-        /* Navbar */
-        .navbar {
-            background-color: var(--color-bg);
-        }
-
-        .navbar-brand,
-        .nav-link {
-            color: var(--color-light) !important;
-        }
-
-        .navbar-brand:hover,
-        .nav-link:hover {
-            color: var(--color-accent) !important;
-        }
-
-        /* Card Styles */
-        .card-sleek {
-            background: linear-gradient(135deg, var(--color-highlight), var(--color-bg));
-            color: #fff;
-        }
-
-        .card-sleek2 {
-            background: linear-gradient(135deg, var(--color-accent), var(--color-purple));
-            color: #fff;
-        }
-
-        .card-sleek3 {
-            background: linear-gradient(135deg, var(--color-title), var(--color-bg));
-            color: #fff;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-body {
-            padding: 2rem;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            color: var(--color-light);
-        }
-
-        .card-text {
-            font-size: 1rem;
-            line-height: 1.5;
-        }
-
-        .btn-outline-light {
-            border-color: var(--color-primary);
-            color: var(--color-primary);
-        }
-
-        .btn-outline-light:hover {
-            background-color: var(--color-primary);
-            color: #000;
-        }
-
-        /* Footer */
-        footer {
-            background-color: var(--color-bg);
-            color: var(--color-soft-pink);
-        }
+      }
     </style>
-</head>
+  </head>
 
-<body>
+  <body class="text-light">
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
-        <div class="container-fluid">
-            <a class="navbar-brand fw-bold" href="https://it-z-kyoko.github.io/KyosDeliveryService/">Kyo's Delivery
-                Service</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Social Media</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Ko-Fi</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Etsy</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact Me</a>
-                    </li>
-                </ul>
-            </div>
+    <nav
+      class="navbar navbar-expand-lg bg-kyo border-bottom border-secondary-subtle sticky-top"
+    >
+      <div class="container">
+        <a class="navbar-brand fw-bold text-kyo-light" href="#">
+          <i class="bi bi-stars me-2"></i>Kyo Portfolio
+        </a>
+
+        <button
+          class="navbar-toggler border-secondary"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#mainNav"
+          aria-controls="mainNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="mainNav">
+          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#fields">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#featured">Featured</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link text-light" href="#contact">Contact</a>
+            </li>
+            <li class="nav-item ms-lg-2">
+              <a class="btn btn-kyo-accent rounded-pill px-4" href="#contact"
+                >Let’s Connect</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
     </nav>
 
-    <!-- About Section -->
-    <div class="container py-5">
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card bg-dark text-white">
-                    <div class="card-body">
-                        <h2 class="card-title">About Me</h2>
-                        <h5>Photo of me:</h5>
-                        <figure>
-                            <img src="img/PXL_20250608_053714685.jpg" class="img-fluid rounded mb-3" alt="Your Photo">
-                            <figcaption style="font-size: small;">My Cosplay of Neon from Valorant @Dokomi 2025
-                            </figcaption>
-                        </figure>
-                        <p>
-                            Hi! I'm Kyo (they/them) and I am the owner and one-person-army of this shop! I am currently
-                            20 years old and working full time as an IT specialist.
-                            <br><br>
-                            I created <i>Kyo's Delivery Service</i> as a cozy place where I can share my passion.
-                            <br><br>
-                            At my shop, you'll find digital arts portraying different characters from different fandoms.
-                            <br><br>
-                            However, I've only been a "fanart" artist since end of 2024. I used to only draw my OCs, so
-                            the shift to fanarts was a huge jump — now I need to make characters recognizable in my
-                            drawings :3
-                            <br><br>
-                            Art has always been my way of expressing myself and connecting with people. When I was
-                            younger (as if I still aren't xD), being into Anime was considered weird and got a lot of
-                            comments. But I stayed loyal to the style and keep drawing in an anime-inspired way.
-                            <br><br>
-                            Thanks for stopping by! Have a look around and if you have any questions, feel free to reach
-                            out! I'd love to help out!
-                        </p>
-                    </div>
+    <!-- Hero -->
+    <section class="py-5 py-lg-6">
+      <div class="container py-lg-4">
+        <div
+          class="rounded-5 p-4 p-lg-5 hero-gradient border border-secondary-subtle shadow"
+        >
+          <div class="row align-items-center g-4 g-lg-5">
+            <div class="col-lg-7">
+              <span class="section-badge mb-3">
+                Creative Portfolio · Photography · Cosplay · Art · Programming
+              </span>
+
+              <h1 class="display-2 fw-bold mb-3 hero-title">
+                Hi, I’m <span class="text-kyo-title">Kyo</span>
+              </h1>
+
+              <p class="lead text-kyo-soft mb-4 hero-subline">
+                I work across photography, cosplay, digital art, and
+                programming. This portfolio brings together the things I create,
+                build, capture, and care about — from visual storytelling and
+                design to technical projects and personal creative work.
+              </p>
+
+              <div class="d-flex flex-wrap gap-3 mb-4">
+                <a
+                  href="#fields"
+                  class="btn btn-kyo-primary btn-lg rounded-pill px-4"
+                >
+                  <i class="bi bi-grid-3x3-gap-fill me-2"></i>Explore Portfolio
+                </a>
+                <a
+                  href="#featured"
+                  class="btn btn-outline-kyo btn-lg rounded-pill px-4"
+                >
+                  <i class="bi bi-star me-2"></i>Featured Work
+                </a>
+              </div>
+
+              <div class="row g-3">
+                <div class="col-sm-4">
+                  <div class="stat-box rounded-4 p-3 h-100">
+                    <div class="small text-kyo-soft mb-1">Focus</div>
+                    <div class="fw-semibold">Creative & Technical</div>
+                  </div>
                 </div>
+                <div class="col-sm-4">
+                  <div class="stat-box rounded-4 p-3 h-100">
+                    <div class="small text-kyo-soft mb-1">Fields</div>
+                    <div class="fw-semibold">4 Core Areas</div>
+                  </div>
+                </div>
+                <div class="col-sm-4">
+                  <div class="stat-box rounded-4 p-3 h-100">
+                    <div class="small text-kyo-soft mb-1">Based on</div>
+                    <div class="fw-semibold">Passion & Detail</div>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div class="col-md-8">
-                <div class="card bg-dark text-light">
-                    <div class="card-body">
-                        <h2 class="card-title">WHEN DID I START ALL OF THIS?</h2>
-                        <h5 class="text-muted">The Beginning, end of 2024</h5>
-                        <p>
-                            I've started planning this shop for over a year. But with a huge upgrade in my drawing
-                            equipment and encouragement from my besties (thx for that :3), I decided to take matters
-                            into my own hands and actually do all the steps necessary to put up a shop.
-                        </p>
-                    </div>
+            <div class="col-lg-5">
+              <div class="card soft-card shadow rounded-5 overflow-hidden">
+                <img
+                  src="img/PXL_20250608_053714685.jpg"
+                  class="img-fluid object-fit-cover hero-image"
+                  alt="Kyo portrait or featured image"
+                />
+                <div class="card-body">
+                  <p class="card-text text-kyo-soft small mb-0">
+                    Featured visual — use a strong portrait, cosplay image,
+                    artwork, or signature shot that represents you best.
+                  </p>
                 </div>
-                <div class="container py-5">
-                    <div class="row g-4 text-center">
-                        <div class="col-md-4">
-                            <div class="card card-sleek h-100">
-                                <div class="card-body">
-                                    <h2 class="card-title"><i class="bi bi-stars me-2"></i>Newest Posts</h2>
-                                    <p class="card-text">View my latest posts.</p>
-                                    <a href="#" class="btn btn-outline-light btn-sm">Read More</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card card-sleek2 h-100">
-                                <div class="card-body">
-                                    <h2 class="card-title"><i class="bi bi-grid-3x3-gap-fill me-2"></i>Catalogue</h2>
-                                    <p class="card-text">An overview of all the products and prints I offer in my shop.
-                                    </p>
-                                    <a href="Catalogue/catalogue.html" class="btn btn-outline-light btn-sm">Explore</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card card-sleek3 h-100">
-                                <div class="card-body">
-                                    <h2 class="card-title"><i class="bi bi-brush me-2"></i>Commission</h2>
-                                    <p class="card-text">Want a special artwork made just for you? Check out the
-                                        commission page!</p>
-                                    <a href="#" class="btn btn-outline-light btn-sm">Commission Me</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
+      </div>
+    </section>
+
+    <!-- Intro / About -->
+    <section id="about" class="py-5">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-4">
+            <div class="card soft-card h-100 shadow rounded-5">
+              <div class="card-body p-4">
+                <h2 class="h3 fw-bold text-kyo-light mb-4">About Me</h2>
+
+                <div class="row g-3 text-center mb-4">
+                  <div class="col-6">
+                    <div class="stat-box rounded-4 p-3 h-100">
+                      <div class="fs-3 fw-bold text-kyo-title" id="age">20</div>
+                      <div class="small text-kyo-soft">Years old</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="stat-box rounded-4 p-3 h-100">
+                      <div class="fs-3 fw-bold text-kyo-light">IT</div>
+                      <div class="small text-kyo-soft">Specialist</div>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="text-kyo-soft mb-3">
+                  Hi, I’m <strong class="text-light">Kyo</strong> (they/them), a
+                  creative person with a strong connection to visual
+                  storytelling, design, and technical creation.
+                </p>
+
+                <p class="text-kyo-soft mb-3">
+                  My work moves between art, photography, cosplay, and
+                  programming — combining different mediums to express ideas,
+                  emotions, and personal interests.
+                </p>
+
+                <p class="text-kyo-soft mb-0">
+                  This portfolio is meant to reflect both the creative and
+                  technical sides of what I do.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div class="card soft-card h-100 shadow rounded-5">
+              <div class="card-body p-4 p-lg-5">
+                <span class="section-badge mb-3"
+                  >What this portfolio is about</span
+                >
+                <h2 class="h2 fw-bold text-kyo-title mb-4">
+                  A home for the things I create
+                </h2>
+
+                <p class="text-kyo-soft">
+                  This site is a home for the work I create and the projects I
+                  care about. Some of them are visual, some technical, and some
+                  live exactly between those worlds. It is a place to share
+                  finished pieces, experiments, ideas, and the process behind
+                  them.
+                </p>
+
+                <p class="text-kyo-soft">
+                  I love building things that feel expressive and personal —
+                  whether that means capturing a moment through photography,
+                  creating a cosplay, drawing digital art, or developing a
+                  project through code.
+                </p>
+
+                <p class="text-kyo-soft mb-4">
+                  Over time, this portfolio will grow into a broader collection
+                  of selected work, snapshots, and projects that show what I
+                  enjoy making most.
+                </p>
+
+                <div class="row g-3">
+                  <div class="col-md-4">
+                    <div
+                      class="preview-box rounded-4 p-4 d-flex flex-column justify-content-center text-center"
+                    >
+                      <i class="bi bi-camera display-6 text-kyo-light mb-3"></i>
+                      <div class="fw-semibold">Visual storytelling</div>
+                      <div class="small text-kyo-soft mt-1">
+                        Photography & Cosplay
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div
+                      class="preview-box rounded-4 p-4 d-flex flex-column justify-content-center text-center"
+                    >
+                      <i
+                        class="bi bi-palette display-6 text-kyo-title mb-3"
+                      ></i>
+                      <div class="fw-semibold">Creative design</div>
+                      <div class="small text-kyo-soft mt-1">
+                        Illustration & Art
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-4">
+                    <div
+                      class="preview-box rounded-4 p-4 d-flex flex-column justify-content-center text-center"
+                    >
+                      <i class="bi bi-code-slash display-6 text-info mb-3"></i>
+                      <div class="fw-semibold">Technical work</div>
+                      <div class="small text-kyo-soft mt-1">
+                        Programming & Projects
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Fields -->
+    <section id="fields" class="py-5">
+      <div class="container">
+        <div class="text-center mb-5">
+          <span class="section-badge mb-3">Portfolio Fields</span>
+          <h2 class="display-6 fw-bold text-kyo-title">
+            Main Areas of My Work
+          </h2>
+          <p class="text-kyo-soft mb-0">
+            The core categories that shape this portfolio.
+          </p>
+        </div>
+
+        <div class="row g-4">
+          <div class="col-md-6 col-xl-3">
+            <div class="card category-card h-100 shadow rounded-5">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="icon-circle text-kyo-light mb-3">
+                  <i class="bi bi-camera"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Photography</h3>
+                <p class="text-kyo-soft flex-grow-1">
+                  Portraits, convention impressions, mood-driven shots, and
+                  visual storytelling through the camera.
+                </p>
+                <a
+                  href="photography.html"
+                  class="btn btn-outline-kyo rounded-pill"
+                  >View Photography</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="card category-card h-100 shadow rounded-5">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="icon-circle text-kyo-accent mb-3">
+                  <i class="bi bi-person-bounding-box"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Cosplay</h3>
+                <p class="text-kyo-soft flex-grow-1">
+                  Costumes, character interpretation, convention appearances,
+                  and cosplay-centered creative expression.
+                </p>
+                <a href="cosplay.html" class="btn btn-outline-kyo rounded-pill"
+                  >View Cosplay</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="card category-card h-100 shadow rounded-5">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="icon-circle text-kyo-title mb-3">
+                  <i class="bi bi-palette"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Art</h3>
+                <p class="text-kyo-soft flex-grow-1">
+                  Digital illustrations, fanart, original character work, and
+                  experimental visual pieces.
+                </p>
+                <a href="art.html" class="btn btn-outline-kyo rounded-pill"
+                  >View Art</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 col-xl-3">
+            <div class="card category-card h-100 shadow rounded-5">
+              <div class="card-body p-4 d-flex flex-column">
+                <div class="icon-circle text-info mb-3">
+                  <i class="bi bi-code-slash"></i>
+                </div>
+                <h3 class="h4 fw-bold mb-3">Programming</h3>
+                <p class="text-kyo-soft flex-grow-1">
+                  Web development, tools, technical projects, and creative
+                  problem-solving through code.
+                </p>
+                <a
+                  href="programming.html"
+                  class="btn btn-outline-kyo rounded-pill"
+                  >View Projects</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured / Spotlight -->
+    <section id="featured" class="py-5">
+      <div class="container">
+        <div class="row g-4 align-items-stretch">
+          <div class="col-lg-4">
+            <div class="card soft-card h-100 shadow rounded-5">
+              <div class="card-body p-4 p-lg-5">
+                <span class="section-badge mb-3">Featured Work</span>
+                <h2 class="h2 fw-bold text-kyo-light mb-3">
+                  Spotlighted portfolio areas
+                </h2>
+                <p class="text-kyo-soft">
+                  This section rotates through one featured visual for each of
+                  the four main portfolio categories.
+                </p>
+                <p class="text-kyo-soft">
+                  It gives the homepage a more dynamic look and lets each field
+                  speak for itself through imagery and short highlights.
+                </p>
+                <p class="text-kyo-soft mb-4">
+                  Replace the placeholder images with your own favorite
+                  photography, cosplay, art, and project visuals.
+                </p>
+
+                <div class="d-flex flex-wrap gap-3">
+                  <a
+                    href="#fields"
+                    class="btn btn-kyo-accent rounded-pill px-4"
+                  >
+                    <i class="bi bi-grid me-2"></i>Browse Categories
+                  </a>
+                  <a
+                    href="#contact"
+                    class="btn btn-outline-kyo rounded-pill px-4"
+                  >
+                    <i class="bi bi-chat-heart me-2"></i>Contact Me
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            <div
+              id="spotlightCarousel"
+              class="carousel slide h-100"
+              data-bs-ride="carousel"
+              data-bs-interval="5500"
+            >
+              <div class="carousel-indicators">
+                <button
+                  type="button"
+                  data-bs-target="#spotlightCarousel"
+                  data-bs-slide-to="0"
+                  class="active"
+                  aria-current="true"
+                  aria-label="Photography"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#spotlightCarousel"
+                  data-bs-slide-to="1"
+                  aria-label="Cosplay"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#spotlightCarousel"
+                  data-bs-slide-to="2"
+                  aria-label="Art"
+                ></button>
+                <button
+                  type="button"
+                  data-bs-target="#spotlightCarousel"
+                  data-bs-slide-to="3"
+                  aria-label="Programming"
+                ></button>
+              </div>
+
+              <div class="carousel-inner shadow rounded-5">
+                <!-- Photography -->
+                <div class="carousel-item active">
+                  <div class="card spotlight-slide-card rounded-5 shadow">
+                    <div class="row g-0 h-100">
+                      <div class="col-lg-6">
+                        <div class="spotlight-image-wrap h-100">
+                          <span class="spotlight-overlay-badge">
+                            <i class="bi bi-camera me-2"></i>Featured
+                            Photography
+                          </span>
+                          <img
+                            src="img/featured-photography.jpg"
+                            alt="Featured photography preview"
+                            class="spotlight-image"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div
+                          class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center spotlight-content"
+                        >
+                          <div class="spotlight-meta mb-2">
+                            Photography · Portraits · Convention impressions
+                          </div>
+                          <h3 class="fw-bold mb-3 spotlight-title">
+                            Capturing mood, movement, and memorable moments
+                          </h3>
+                          <p class="text-kyo-soft mb-4">
+                            A featured look into portrait sessions, event
+                            photography, and visual storytelling through
+                            atmosphere, framing, and emotion.
+                          </p>
+                          <div class="d-flex flex-wrap gap-3">
+                            <a
+                              href="photography.html"
+                              class="btn btn-kyo-primary rounded-pill px-4"
+                            >
+                              View Photography
+                            </a>
+                            <a
+                              href="#contact"
+                              class="btn btn-outline-kyo rounded-pill px-4"
+                            >
+                              Ask Me More
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Cosplay -->
+                <div class="carousel-item">
+                  <div class="card spotlight-slide-card rounded-5 shadow">
+                    <div class="row g-0 h-100">
+                      <div class="col-lg-6">
+                        <div class="spotlight-image-wrap h-100">
+                          <span class="spotlight-overlay-badge">
+                            <i class="bi bi-person-bounding-box me-2"></i
+                            >Featured Cosplay
+                          </span>
+                          <img
+                            src="img/featured-cosplay.jpg"
+                            alt="Featured cosplay preview"
+                            class="spotlight-image"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div
+                          class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center spotlight-content"
+                        >
+                          <div class="spotlight-meta mb-2">
+                            Cosplay · Character work · Convention presence
+                          </div>
+                          <h3 class="fw-bold mb-3 spotlight-title">
+                            Characters brought into the real world
+                          </h3>
+                          <p class="text-kyo-soft mb-4">
+                            A featured showcase for costume builds, convention
+                            appearances, character-focused shoots, and the
+                            creative work behind cosplay presentation.
+                          </p>
+                          <div class="d-flex flex-wrap gap-3">
+                            <a
+                              href="cosplay.html"
+                              class="btn btn-kyo-accent rounded-pill px-4"
+                            >
+                              View Cosplay
+                            </a>
+                            <a
+                              href="#contact"
+                              class="btn btn-outline-kyo rounded-pill px-4"
+                            >
+                              See More
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Art -->
+                <div class="carousel-item">
+                  <div class="card spotlight-slide-card rounded-5 shadow">
+                    <div class="row g-0 h-100">
+                      <div class="col-lg-6">
+                        <div class="spotlight-image-wrap h-100">
+                          <span class="spotlight-overlay-badge">
+                            <i class="bi bi-palette me-2"></i>Featured Art
+                          </span>
+                          <img
+                            src="img/featured-art.jpg"
+                            alt="Featured art preview"
+                            class="spotlight-image"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div
+                          class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center spotlight-content"
+                        >
+                          <div class="spotlight-meta mb-2">
+                            Art · Illustration · Fanart & original work
+                          </div>
+                          <h3 class="fw-bold mb-3 spotlight-title">
+                            Illustrations, ideas, and visual experimentation
+                          </h3>
+                          <p class="text-kyo-soft mb-4">
+                            A rotating feature for digital illustrations,
+                            character-focused pieces, fanart, and artworks that
+                            represent your style most strongly.
+                          </p>
+                          <div class="d-flex flex-wrap gap-3">
+                            <a
+                              href="art.html"
+                              class="btn btn-outline-kyo rounded-pill px-4"
+                            >
+                              View Art
+                            </a>
+                            <a
+                              href="#contact"
+                              class="btn btn-outline-light rounded-pill px-4"
+                            >
+                              Get in Touch
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Programming -->
+                <div class="carousel-item">
+                  <div class="card spotlight-slide-card rounded-5 shadow">
+                    <div class="row g-0 h-100">
+                      <div class="col-lg-6">
+                        <div class="spotlight-image-wrap h-100">
+                          <span class="spotlight-overlay-badge">
+                            <i class="bi bi-code-slash me-2"></i>Featured
+                            Programming
+                          </span>
+                          <img
+                            src="img/featured-programming.jpg"
+                            alt="Featured programming preview"
+                            class="spotlight-image"
+                          />
+                        </div>
+                      </div>
+                      <div class="col-lg-6">
+                        <div
+                          class="card-body p-4 p-lg-5 d-flex flex-column justify-content-center spotlight-content"
+                        >
+                          <div class="spotlight-meta mb-2">
+                            Programming · Web development · Tools & projects
+                          </div>
+                          <h3 class="fw-bold mb-3 spotlight-title">
+                            Technical projects with a creative side
+                          </h3>
+                          <p class="text-kyo-soft mb-4">
+                            A featured area for websites, apps, custom tools,
+                            and development projects that show how creativity
+                            and technical thinking come together.
+                          </p>
+                          <div class="d-flex flex-wrap gap-3">
+                            <a
+                              href="programming.html"
+                              class="btn btn-kyo-primary rounded-pill px-4"
+                            >
+                              View Projects
+                            </a>
+                            <a
+                              href="https://github.com/"
+                              class="btn btn-outline-kyo rounded-pill px-4"
+                            >
+                              GitHub
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#spotlightCarousel"
+                data-bs-slide="prev"
+              >
+                <span
+                  class="carousel-control-prev-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#spotlightCarousel"
+                data-bs-slide="next"
+              >
+                <span
+                  class="carousel-control-next-icon"
+                  aria-hidden="true"
+                ></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Extra Highlights -->
+    <section class="py-5">
+      <div class="container">
+        <div class="row g-4 mt-1">
+          <div class="col-md-4">
+            <div class="card highlight-card h-100 shadow rounded-5">
+              <div class="card-body p-4">
+                <div class="small text-kyo-light mb-2">
+                  Photography Highlight
+                </div>
+                <h3 class="h5 fw-bold mb-3">Convention & Portrait Sessions</h3>
+                <p class="text-kyo-soft mb-0">
+                  A place for selected favorite shots, short project
+                  descriptions, or links to recent galleries.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card highlight-card h-100 shadow rounded-5">
+              <div class="card-body p-4">
+                <div class="small text-kyo-accent mb-2">Creative Highlight</div>
+                <h3 class="h5 fw-bold mb-3">Cosplay & Art Features</h3>
+                <p class="text-kyo-soft mb-0">
+                  Show a standout costume, a favorite drawing series, or
+                  something visually iconic for your portfolio.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-4">
+            <div class="card highlight-card h-100 shadow rounded-5">
+              <div class="card-body p-4">
+                <div class="small text-info mb-2">Programming Highlight</div>
+                <h3 class="h5 fw-bold mb-3">Projects & Tools</h3>
+                <p class="text-kyo-soft mb-0">
+                  Use this for websites, utilities, experiments, or development
+                  work that represents your technical side well.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Future Direction -->
+    <section class="py-5">
+      <div class="container">
+        <div class="card soft-card shadow rounded-5">
+          <div class="card-body p-4 p-lg-5">
+            <div class="row align-items-center g-4">
+              <div class="col-lg-8">
+                <span class="section-badge mb-3">Growing Portfolio</span>
+                <h2 class="h2 fw-bold text-kyo-title mb-3">
+                  This portfolio will keep evolving
+                </h2>
+                <p class="text-kyo-soft mb-0">
+                  As more work is added, each section can grow into its own
+                  dedicated space with galleries, project pages, write-ups,
+                  process insights, and selected favorites. The homepage acts as
+                  the central introduction and overview.
+                </p>
+              </div>
+              <div class="col-lg-4 text-lg-end">
+                <a
+                  href="#contact"
+                  class="btn btn-kyo-primary rounded-pill px-4"
+                >
+                  <i class="bi bi-chat-heart me-2"></i>Get in Touch
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="py-5">
+      <div class="container">
+        <div class="card border-0 shadow rounded-5 hero-gradient">
+          <div class="card-body p-4 p-lg-5 text-center">
+            <span class="section-badge mb-3">Contact & Socials</span>
+            <h2 class="display-6 fw-bold mb-3">Let’s Connect</h2>
+            <p class="text-kyo-soft mb-4">
+              Add your socials, portfolio platforms, GitHub, email, or other
+              contact options here so people can easily reach you or follow your
+              work.
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a href="#" class="btn btn-kyo-accent rounded-pill px-4">
+                <i class="bi bi-instagram me-2"></i>Instagram
+              </a>
+              <a href="#" class="btn btn-kyo-primary rounded-pill px-4">
+                <i class="bi bi-github me-2"></i>GitHub
+              </a>
+              <a href="#" class="btn btn-outline-light rounded-pill px-4">
+                <i class="bi bi-envelope me-2"></i>Email
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- Footer -->
-    <footer class="text-center py-4 mt-5">
-        <p class="mb-0">&copy; 2025 Kyo's Delivery Service. All rights reserved.</p>
+    <footer class="border-top border-secondary-subtle py-4 mt-4">
+      <div class="container">
+        <div
+          class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3"
+        >
+          <div class="text-kyo-soft small text-center text-md-start">
+            &copy; 2026 Kyo Portfolio. All rights reserved.
+          </div>
+          <div class="d-flex gap-3 flex-wrap justify-content-center">
+            <a href="#about" class="text-decoration-none footer-link">About</a>
+            <a href="#fields" class="text-decoration-none footer-link"
+              >Portfolio</a
+            >
+            <a href="#featured" class="text-decoration-none footer-link"
+              >Featured</a
+            >
+            <a href="#contact" class="text-decoration-none footer-link"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </div>
     </footer>
-</body>
 
+    <script>
+      function calculateAge(birthDateString) {
+        const today = new Date();
+        const birthDate = new Date(birthDateString);
+
+        let age = today.getFullYear() - birthDate.getFullYear();
+        const monthDifference = today.getMonth() - birthDate.getMonth();
+        const dayDifference = today.getDate() - birthDate.getDate();
+
+        if (
+          monthDifference < 0 ||
+          (monthDifference === 0 && dayDifference < 0)
+        ) {
+          age--;
+        }
+
+        document.getElementById("age").textContent = age;
+      }
+
+      calculateAge("2005-01-14");
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
 </html>
